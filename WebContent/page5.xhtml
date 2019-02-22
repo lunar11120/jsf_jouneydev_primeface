@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+<h:outputText id="messages" value="#{checkListController.message1}"></h:outputText>
+	
+
+    <p:dataTable value="#{checkListController.amList}" var="check" id="checkTable">
+    	<p:column headerText="Site Name"> #{check.name} </p:column>
+    	<p:column headerText="URL">
+    		<a href="#{check.url}" target="_blank"> #{check.url} </a>
+    	</p:column>   
+    	<p:column headerText="Operation">
+    		<h:form>
+    			<p:commandButton value="edit" action="#{checkListController.setCheck(check)}" update=":checkForm"/>
+    		</h:form>
+    	</p:column>
+    	
+
+    	
+    </p:dataTable>
+    
+    <hr />
+    
+    <!-- Input data Form -->
+    <h:form id="checkForm">
+    	<p:panelGrid columns="2">
+    		Name : <p:inputText value="#{checkListController.amCheck.name}" />
+    		URL :  <p:inputText value="#{checkListController.amCheck.url}" />
+    	</p:panelGrid>
+    	<p:commandButton value="save" action="#{checkListController.saveAmCheckList() }" 
+    	                 update="checkForm, :checkTable, :messages" styleClass="ui-priority-primary" />
+    </h:form>
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	</h:form>
+	
+</h:body>
+</html>

@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <h:outputText value="Page3 Here" />
+
+    <div id="header-content" >
+        <h:outputText value="Header FOR page 3"/>
+    </div>
+
+    <p:panel id="content-layout"  toggleable="true">
+        <h:panelGrid columns="2" style="width: 100%;" rendered="#{sl1010Controller.page == 'MAIN'}">
+               <h:outputText value="Panel1 : is main"/>
+        </h:panelGrid>
+         <h:panelGrid columns="2" style="width: 100%;" rendered="#{sl1010Controller.page != 'MAIN'}">
+               <h:outputText value="NOT mAIn"/>
+        </h:panelGrid>
+        
+        <h:panelGrid columns="2" style="width: 50%;" rendered="#{sl1010Controller.page == 'MAIN'}">
+                <h:outputLabel value="Year GOV" styleClass="lbl_bold"/>
+                <p:selectOneMenu  value="#{sl1010Controller.gyearS}">  
+                    <f:selectItems value="#{sl1010Controller.gyearList}" />  
+                </p:selectOneMenu>
+       </h:panelGrid>
+    </p:panel>
+    
+  <p:panel id="content-layout" styleClass="margin" header="APP DATA 2019">
+        <p:dataTable id="mainItemDetail"  >
+            <p:columnGroup type="header">
+                <p:row>
+                    <p:column rowspan="1" headerText="data date"></p:column>
+                    <p:column rowspan="1" headerText="type" ></p:column>
+                    <p:column rowspan="2" headerText="create_date_data" ></p:column>
+                </p:row>    
+
+            </p:columnGroup>
+            
+            <p:column style="text-align: center" >
+                <h:outputText value="11558" />
+            </p:column>
+            <p:column style="text-align: center" >
+                <h:outputText value="" />
+            </p:column>
+            <p:column style="text-align: center" >
+                <h:outputText value="" />
+            </p:column>
+            
+            <p:columnGroup type="footer">
+                <p:row>
+                    <p:column colspan="10" style="text-align:center" footerText="125" />
+                </p:row>
+            </p:columnGroup>
+        </p:dataTable>
+    </p:panel>  
+    
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	</h:form>
+	
+
+	
+</h:body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <h:form>
+    	<h:panelGrid columns="4">
+    		<h:outputText value="Input text here : " />
+    	    <p:inputText id="counter" value="#{listenerView.text1}">
+    	    	<p:ajax event="keyup" update="out" listener="#{listenerView.handleKeyEvent}" />
+    	    </p:inputText>
+    	    <h:outputText value="  >>  " />
+    	    <h:outputText id="out" value="#{listenerView.text1}" />
+    	
+    	</h:panelGrid>
+    </h:form>   
+    <hr />
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	</h:form>
+	
+
+	
+</h:body>
+</html>

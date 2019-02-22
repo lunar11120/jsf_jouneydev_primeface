@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+<h:outputText id="messages" value="#{employeeDialog.msg1}"></h:outputText>
+
+
+<!-- Get Time PF -->
+    <h2>Primefaces Dialog Dynamic Content Example</h2>
+    <h:outputText value="Page loaded time: #{employeeDialog.time}"/>
+    <br/>
+    <h:form>
+        <p:commandButton value="Show Dialog"
+                         oncomplete="PF('dialogtime').show();"
+                         update="content"/>
+        <p:dialog header="Dynamic Content Dialog" widgetVar="dialogtime" modal="true">
+            <h:outputText id="content"
+                          value="Dialog loaded time: #{employeeDialog.time}"/>
+        </p:dialog>
+    </h:form>
+    
+<!-- show employee select -->  
+
+    <h2>Primefaces Simple Dialog Example : Employee</h2>
+    <p:commandButton value="Select Employees" type="button" onclick="PF('dlg_employee').show();"/>  
+    
+    <h:form>
+        <p:dialog header="Employee Selection Dialog" widgetVar="dlg_employee" modal="true">
+            <p:selectManyMenu value="#{employeeDialog.selectedEmployees}">
+                <f:selectItems value="#{employeeDialog.employees}" var="emp"
+                               itemLabel="#{emp}" itemValue="#{emp}"/>
+            </p:selectManyMenu>
+            <p:commandButton value="Submit" update="selectedEmpPanel" onclick="PF('dlg_employee').hide();"/>
+        </p:dialog>
+
+        <h3>Selected Employees:</h3>
+        <h:panelGrid id="selectedEmpPanel" columns="1">
+            <ui:repeat value="#{employeeDialog.selectedEmployees}" var="emp">
+                <h:outputText value="#{emp}"/>
+                <br/>
+            </ui:repeat>
+        </h:panelGrid>
+    </h:form>  
+    
+<p:commandButton update=" :messages " value="Submit ON complete" 
+      oncomplete="PF('dialogtime').show()"  > 
+                    <f:setPropertyActionListener value="12345" target="#{employeeDialog.msg1}"/>                   
+</p:commandButton>           
+    
+<h:panelGrid columns="1" cellpadding="5">
+    <p:commandButton value="Basic" type="button" onclick="PF('dlg1').show();" />
+ 
+    <p:commandButton value="Modal" type="button" onclick="PF('dlg1').show();" />
+ 
+    <p:commandButton value="Effects" type="button" onclick="PF('dlg1').show();" /> 
+</h:panelGrid>    
+ 
+<p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+    <h:outputText value="Resistance to PrimeFaces is futile!" />
+</p:dialog>	
+
+<p:dialog header="Basic Dialog path2" widgetVar="dlg2" minHeight="50">
+    <h:outputText value="Resistance to PrimeFaces is futile!" />
+</p:dialog>	
+
+    <p:dialog header="de33333" widgetVar="sl2019_data_detail_dialog" resizable="false" id="data_detail_Dlg"  
+              closable="false" height="460" width="1200" modal="true">  
+               <h:outputText value="Resistance to PrimeFaces is futile!" />
+    </p:dialog>	              
+
+    
+    <hr />
+    
+
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	</h:form>
+	
+</h:body>
+</html>

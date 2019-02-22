@@ -1,0 +1,198 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>  <title>Property action Listener</title>  </h:head>
+
+<h:body>
+
+	<h:outputText value="Property Action Listener" />
+    <h1>JSF 2 setPropertyActionListener example</h1>
+		
+
+	
+    <hr />
+    
+
+    <p:dataTable var="car" value="" paginator="true" rows="10"  scrollHeight="100" scrollable="true" 
+                   >  
+
+                            <p:columnGroup type="header">
+                                <p:row>  
+                                    <p:column colspan="4" headerText="" width="800" />  
+                                    <p:column colspan="5" headerText="aaa" width="1000"/>  
+                                    <p:column colspan="5" headerText="bbb" width="1000"/>  
+                                    <p:column colspan="5" headerText="ccccc" width="1000"/>  
+                                    <p:column colspan="6" headerText="" width="1200" />  
+                                </p:row>  
+
+                                <p:row>  
+                                    <p:column headerText="asd." />  
+                                    <p:column headerText="Sasd." />  
+                                    <p:column headerText="Saasd" />  
+                                    <p:column headerText="Salasd" />  
+
+
+                                    <p:column headerText="asd." />  
+                                    <p:column headerText="Sasd." />  
+                                    <p:column headerText="Saasd" />  
+                                    <p:column headerText="Salasd" />  
+                                    <p:column headerText="Zaoasd" />  
+
+
+                                    <p:column headerText="asd." />  
+                                    <p:column headerText="Sasd." />  
+                                    <p:column headerText="Saasd" />  
+                                    <p:column headerText="Salasd" />  
+                                    <p:column headerText="Zaoasd" />  
+
+
+                                    <p:column headerText="asd." />  
+                                    <p:column headerText="Sasd." />  
+                                    <p:column headerText="Saasd" />  
+                                    <p:column headerText="Salasd" />  
+                                    <p:column headerText="Zaoasd" />  
+
+
+                                    <p:column headerText="asd." />  
+                                    <p:column headerText="Sasd." />  
+                                    <p:column headerText="Saasd" />  
+                                    <p:column headerText="Salasd" />  
+                                    <p:column headerText="Zaoasd" />  
+                                    <p:column headerText="Saasd." />  
+                                </p:row>  
+                            </p:columnGroup>
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+                            <p:column>  
+                                dfgdfgdfg
+                            </p:column>  
+
+
+
+                            <p:columnGroup type="footer">  
+                                <p:row>  
+                                    <p:column colspan="4" footerText="" width="800" />  
+                                    <p:column colspan="5" footerText="sdfsd" width="1000"/>  
+                                    <p:column colspan="5" footerText="MA sdf" width="1000"/>  
+                                    <p:column colspan="5" footerText="MA sdf" width="1000"/>  
+                                    <p:column colspan="6" footerText="sdfs" width="1200" />  
+                                </p:row>  
+                            </p:columnGroup> 
+                        </p:dataTable>  
+                        
+                        <hr/>
+
+<p:dataTable id="mainItemDetail"   value=""  emptyMessage=""   scrollable="true" >
+
+            <p:columnGroup type="header">
+                <p:row>
+                    <p:column rowspan="2" headerText="งวด/วันที่อนุมัติข้อมูล" width="200"></p:column>
+                    <p:column rowspan="2" headerText="ประเภท"  width="200"></p:column>
+                    <p:column rowspan="2" headerText="วันที่สร้างข้อมูล"  width="200"></p:column>
+                    <p:column rowspan="2" headerText="ผู้ที่ทำรายการ"  width="200"></p:column>
+                    <p:column rowspan="2" headerText="วันที่ปรับปรุงข้อมูล"  width="200"></p:column>
+                    <p:column rowspan="2" headerText="ผู้ที่ทำรายการ"  width="200"></p:column>
+                    <p:column colspan="2" headerText="สถานะการส่งข้อมูล"  width="200"></p:column>
+                    <p:column colspan="2" headerText="สถานะการส่งข้อมูล1"  width="200"></p:column>
+
+                </p:row>
+                <p:row>
+                    <p:column  headerText="หน่วยบริการภาครัฐสังกัด สป.สฐ."  width="200" ></p:column>
+                    <p:column  headerText="กลุ่มรัฐนอกสังกัดฯและเอกชน"     width="200" ></p:column>
+                    <p:column  headerText="หน่วยบริการภาครัฐสังกัด สป.สฐ."  width="200" ></p:column>
+                    <p:column  headerText="กลุ่มรัฐนอกสังกัดฯและเอกชน"     width="200" ></p:column>
+ 
+                </p:row>
+               
+            </p:columnGroup>
+       <p:column> C1 </p:column>  <p:column>C2</p:column>  <p:column>C3</p:column>  <p:column>C4</p:column> 
+       <p:column> C5</p:column>  <p:column>C6</p:column>  <p:column>C7</p:column>  <p:column>C8</p:column>
+        <p:column>C9</p:column>  <p:column>C10</p:column>  
+        
+        <p:columnGroup type="footer">
+           <p:row>      
+               <p:column width="1200" colspan="10" style="text-align:left; padding-left : 280px;" footerText="จำนวนทั้งหมด 3 รายการ" />
+           </p:row>
+         </p:columnGroup>
+   
+           
+               
+   </p:dataTable>
+
+
+
+	
+</h:body>
+</html>

@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:outputText value="This is page1 " /><br />
+	<p:spinner />
+	
+	<h:outputText value="Check Customer test" /><br />
+	
+	<h:inputText value="Hello world" rendered="false" /><br />
+	
+	      <h2>h:inputText example</h2>
+          <hr />
+      
+      <h:form>
+         <h3>Read-Only input text box</h3>
+         <h:inputText value = "Hello World!" readonly = "true"/>
+         <h3>Read-Only input text box</h3>
+         <h:inputText value = "Hello World"/>
+      </h:form>
+       <hr />
+       
+       <h:outputText value="120.2547">
+       		<f:convertNumber pattern="#000.00" />
+       </h:outputText>
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	</h:form>
+	
+	<p:accordionPanel  multiple="true">
+		<p:tab title="CINEMA : XC1">
+		<h:outputText value= "Lorem"/>
+		selecuy idud  lkddj  l k jjd pp odiid jj hh hh 
+		coujdjd jdhdhd ldkdjhdh
+		</p:tab>
+		<p:tab title="CINEMA : XC2">
+		<h:outputText value="Ipsum" />
+		332502 hyyuuffgggghhh
+		</p:tab>
+		<p:tab title="CINEMA : XC3">
+		<h:outputText value="Kanamotum" />
+		12000024 k jjd pp odiid jj hh hh  yuuffgggghhh
+		</p:tab>
+	</p:accordionPanel>	
+	
+</h:body>
+</html>

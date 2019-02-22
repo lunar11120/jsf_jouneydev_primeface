@@ -1,0 +1,40 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<div id="header-content"
+		class="ui-widget-header ui-helper-clearfix ui-corner-all">
+		<h:outputText value="#{viewEmployeesManagedBean.content1}" />
+	</div>
+
+    <p:panel id="content-layout" styleClass="margin" header="Insertdata" toggleable="true">
+         <h:panelGrid columns="2" style="width: 100%;" rendered="#{sl1010Controller.page != 'MAIN'}">
+            <h:panelGroup layout="block" style="width: 100%">
+                <h:panelGrid id="panelGrip_detail" columns="1" >
+                    <h:outputText value="Show Gyear #{sL1010Controller.gyearS}" />
+                </h:panelGrid>
+            </h:panelGroup>
+        </h:panelGrid>
+    </p:panel>
+
+	<h3>Basic panel grid</h3>
+	<p:panelGrid columns="2">
+		<f:facet name="header">
+			
+		</f:facet>
+
+		<h:outputText value="Name:" />
+		<h:outputText value="Kobe Bryant" />
+
+		<h:outputText value="Team:" />
+		<h:outputText value="Los Angeles Lakers" />
+
+		<h:outputText value="Position:" />
+		<h:outputText value="Shooting Guard" />
+
+		<h:outputText value="Number:" />
+		<h:outputText value="24" />
+	</p:panelGrid>
+
+</ui:composition>

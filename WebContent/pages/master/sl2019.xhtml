@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:body>
+
+	<div id="header-content"
+		class="ui-widget-header ui-helper-clearfix ui-corner-all">
+		<h:outputText value="#{viewEmployeesManagedBean.content2}" /><br />
+	</div>
+  
+    <h:outputText id="msgText2" value="#{sL2019Controller.msgText2}" style="font-size: 16px;color: blue;"/>
+    <p:panel id="c2" styleClass="margin" header="List Table 1 Example">
+        <p:dataTable id="mainItemDetail3" var="item" value="#{sL2019Controller.mainDataTableList}" emptyMessage="" >
+            <p:columnGroup type="header">
+                <p:row>
+                    <p:column rowspan="1" headerText="Project Code"></p:column>
+                    <p:column rowspan="1" headerText="Status"></p:column>
+                    <p:column rowspan="1" headerText="Appr Date"></p:column>
+                </p:row>
+            </p:columnGroup>
+            
+           <p:column style="text-align: center" >
+                <h:outputText value="#{item.projectCode}" />
+            </p:column>           
+           <p:column style="text-align: center" >
+                <h:outputText value="#{item.status}" />
+            </p:column>
+             <p:column style="text-align: center" >
+                <h:outputText value="#{item.apprDate}" />
+            </p:column>
+            <p:column headerText="operations">
+            	<h:form>
+            		<p:commandButton value="Edit" action="#{sL2019Controller.setCheck(item)}" />
+            	</h:form>
+            </p:column>
+            
+
+          
+            
+         </p:dataTable>
+    </p:panel>    
+
+
+            
+   
+		
+	
+
+
+</h:body>
+</html>

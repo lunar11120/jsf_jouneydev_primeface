@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+
+	<h:outputText value="Menu and subMenu Test" />
+	
+<h:form>
+	<p:menu>
+		<p:submenu label="Nav1 File">
+			<p:menuitem value="open file"></p:menuitem>
+			<p:menuitem value="se check"></p:menuitem>
+			<p:menuitem value="Close file"></p:menuitem>
+		</p:submenu>
+			
+		<p:submenu label="Help">
+			<p:menuitem value="FindHelp F1"></p:menuitem>
+			<p:menuitem value="show Option"></p:menuitem>
+			<p:separator />
+			<p:menuitem value="close Option 1"></p:menuitem>
+			<p:menuitem value="close Option 2"></p:menuitem>
+		</p:submenu>
+	</p:menu>
+	
+</h:form>
+
+<h:form>
+	<!-- Overlay Menu -->
+		<p:menu overlay="true" trigger="triggerButton" my="left top" at="right top" >
+		<p:submenu label="Nav1 File">
+			<p:menuitem value="open file"></p:menuitem>
+			<p:menuitem value="se check"></p:menuitem>
+			<p:menuitem value="Close file"></p:menuitem>
+		</p:submenu>
+			
+		<p:submenu label="Help">
+			<p:menuitem value="FindHelp F1"></p:menuitem>
+			<p:menuitem value="show Option"></p:menuitem>
+			<p:separator />
+			<p:menuitem value="close Option 1"></p:menuitem>
+			<p:menuitem value="close Option 2"></p:menuitem>
+		</p:submenu>
+	</p:menu>
+	<p:commandButton id="triggerButton" value="Trigger Menu"></p:commandButton>
+</h:form>
+	
+</html>

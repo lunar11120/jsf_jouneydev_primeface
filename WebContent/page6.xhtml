@@ -1,0 +1,150 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>  <title>Property action Listener</title>  </h:head>
+
+<h:body>
+
+	<h:outputText value="Property Action Listener" />
+    <h1>JSF 2 setPropertyActionListener example</h1>
+		
+	<h:form id="form">	
+	  <h:commandButton action="#{userBean.outcome}" value="Click Me it goto userBean">		
+	      <f:setPropertyActionListener target="#{userBean.userName}" value="mkyong and Amjung" />	
+	  </h:commandButton>		
+	</h:form> 
+	
+    <hr />
+    
+ <h:outputText id="msgText" value="UserBean test Listener" style="font-size: 16px;color: red;"/>
+ <p:panel id="content_f1" styleClass="margin" header="Table 1">
+     <p:dataTable id="mainItemDetail" var="item" value="#{userBean.mainDataTableList}"  emptyMessage="" >
+            <p:columnGroup type="header">
+                <p:row>
+                    <p:column rowspan="2" headerText="appr Date"></p:column>
+                    <p:column rowspan="2" headerText="ProjectCode" ></p:column>
+                    <p:column colspan="2" rowspan="1" headerText="selectData" ></p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="1" headerText="Normal"></p:column>
+                    <p:column colspan="1" headerText="retry again"></p:column>
+                </p:row>
+            </p:columnGroup> 
+            
+            <p:column style="text-align: center" >
+                <h:outputText value="#{item.apprDate}" />
+            </p:column>
+            <p:column style="text-align: center" >
+                <h:outputText value="#{item.projectCode}" />
+            </p:column>               
+
+    <p:column style="text-align: center" >
+         <p:commandLink action="#{userBean.selectDenyItemDetail()}" >
+                  <h:outputText value="#{item.sendStatus}" />
+                  <f:setPropertyActionListener value="#{item}" target="#{userBean.selectItem}"/>
+                  <f:setPropertyActionListener value="Data normal" target="#{userBean.selectItemType}"/>
+          </p:commandLink>
+       <h:outputText value="#{item.sendStatus}" rendered="#{item.sendStatus eq 'PASS' ? false:true}" />
+    </p:column>
+    
+    <p:column style="text-align: center" >
+         <p:commandLink action="#{userBean.selectDenyItemDetail()}" >
+                  <h:outputText value="#{item.appealSendStatus}" />
+                  <f:setPropertyActionListener value="#{item}" target="#{userBean.selectItem}"/>
+                  <f:setPropertyActionListener value="Data Retry" target="#{userBean.selectItemType}"/>
+          </p:commandLink>
+       <h:outputText value="#{item.appealSendStatus}" rendered="#{item.appealSendStatus eq 'NOTPASS' ? false:true}" />
+    </p:column>   
+    
+     <!-- App Normal -->
+    <p:column style="text-align: center" >
+          <p:commandButton disabled="#{!item.allowNormalSelectFlag}" value="Message:btn" icon="icon-search" 
+                          action="#{userBean.selectItemToApprove()}" 
+                          oncomplete="PF('sl2019_data_detail_dialog').show()" 
+                           update=":content_f1 , :data_detail_Dlg , :msgText" >
+                  <f:setPropertyActionListener value="#{item}" target="#{userBean.selectItem}"/>
+                  <f:setPropertyActionListener value="Data Normal" target="#{userBean.selectItemType}"/>
+          </p:commandButton>
+    </p:column>  
+    
+    <!-- App retry -->
+    <p:column style="text-align: center" >
+          <p:commandButton disabled="#{!item.allowAppealSelectFlag}" value="Message:btn" icon="icon-search" 
+                            action="#{userBean.selectItemToApprove()}" 
+                            oncomplete="PF('sl2019_data_detail_dialog').show()" 
+                            update=":content_f1 , :data_detail_Dlg , :msgText" >
+                  <f:setPropertyActionListener value="#{item}" target="#{userBean.selectItem}"/>
+                  <f:setPropertyActionListener value="Data Retry" target="#{userBean.selectItemType}"/>
+          </p:commandButton>
+    </p:column>         
+    
+  </p:dataTable>
+</p:panel>
+    
+    <!-- Dialog show -->
+  <p:dialog header="Detail Data (#{userBean.selectItemType})" widgetVar="sl2019_data_detail_dialog" resizable="false" 
+               id="data_detail_Dlg"   closable="false" height="460" width="1200" modal="true">   
+              <h:outputText value="sl2019 data Dialog Here!!!!"/> <br />
+              <h:outputText value="Feed Data begin -=========>"/>
+              
+     <p:dataTable id="selectItemDetail" var="selectItem" value="#{userBean.selectDataTableList}"  emptyMessage="" 
+                     scrollable="true" scrollHeight="280" style="overflow:auto;margin-left: 5px;margin-top: 5px;margin-bottom: 5px;margin-right: 5px">
+            <p:columnGroup type="header">
+                <p:row>
+                    <p:column headerText="Date" style="width:120px"></p:column>
+                    <p:column headerText="HCODE" style="width:100px"></p:column>
+                    <p:column headerText="BUDGETCODE" style="width:200px"></p:column>
+                </p:row>
+            </p:columnGroup>   
+            
+             <p:column style="text-align: center;width:131px" >
+                <h:outputText value="#{selectItem.apprDate}" />
+            </p:column>
+            <p:column style="text-align: center;width:99px" >
+                <h:outputText value="#{selectItem.hcode}" />
+            </p:column>
+            <p:column style="text-align: center;width:199px" >
+                <h:outputText value="#{selectItem.budgetCode}" />
+            </p:column> 
+            
+             <p:columnGroup type="footer">
+                <p:row>
+                    <p:column colspan="5" style="text-align:right;width: 629px" footerText="TOTAL MONEY" />
+                    <p:column colspan="1" style="text-align: right;width:150px ">
+                        <f:facet name="footer">  
+                            <h:outputText value="#{userBean.sumPayment}" >
+                                <f:convertNumber pattern="#,##0.00" />
+                            </h:outputText>
+                        </f:facet>  
+                    </p:column>
+                    <p:column colspan="2" style="text-align: right;width:329px "></p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="8" style="text-align:center;width: 1200px" footerText="Total row : {userBean.selectDataTableList.size()} Object" />
+                </p:row>
+            </p:columnGroup>
+            
+             <f:facet name="footer">
+                <h:panelGroup layout="block" style="text-align: center">
+                    <p:commandButton icon="icon-ok" value="approve" update="@(form)" oncomplete="PF('sl2019_data_detail_dialog').hide()" action="#{userBean.approve()}" />
+                    <p:commandButton icon="icon-cancel" value="cancle" onclick="PF('sl2019_data_detail_dialog').hide()" global="false"/>
+                </h:panelGroup>
+            </f:facet>           
+              
+      </p:dataTable>              
+  </p:dialog>             
+
+
+
+	<h:form>
+	<p>Back to index</p>
+	<h:commandButton action="#{navController.backToIndex}" value="Index" />
+	
+	</h:form>
+	
+
+	
+</h:body>
+</html>

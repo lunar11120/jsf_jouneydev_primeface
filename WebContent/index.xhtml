@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:outputText value="#{helloController.sayHello()}" />
+	<p:spinner />
+	
+	<hr />
+
+	<h:form>
+	<p>Move to page1</p>
+	<h:commandButton action="#{navController.moveToPage1}" value="Page 1" />
+	</h:form>
+	
+	<hr />
+
+    <h:form>
+	<p>PrimeFace 19 Tutorial : Jiri</p>
+	<h:commandButton action="#{navController.goPrimeface1}" value="Primeface1" />
+	</h:form>
+	
+	<hr />
+
+    <h:form>
+	<p>PrimeFace page2 : Listener</p>
+	<h:commandButton action="#{navController.moveToPage2}" value="listener lesson" />
+	</h:form>	
+	
+	<hr />
+	
+<h:panelGrid columns="6">
+    <h:form>
+	<p>PrimeFace page3 : Listener</p>
+	<h:commandButton action="#{navController.moveToPage3}" value="page3" />
+	</h:form>
+	
+    <h:form>
+	<p>PrimeFace page4 : </p>
+	<h:commandButton action="#{navController.moveToPage4}" value="page4" />
+	</h:form>	
+	
+    <h:form>
+	<p>PrimeFace page5 : </p>
+	<h:commandButton action="#{navController.moveToPage5}" value="page5" />
+	</h:form>	
+
+
+    <h:form>
+	<p>PrimeFace page6 : </p>
+	<h:commandButton action="#{navController.moveToPage6}" value="page6" />
+	</h:form>
+	
+    <h:form>
+	<p>PrimeFace page7 : </p>
+	<h:commandButton action="#{navController.moveToPage7}" value="page7" />
+	</h:form>	
+	
+    <h:form>
+	<p>PrimeFace page8 : </p>
+	<h:commandButton action="#{navController.moveToPage8}" value="page8" />
+	</h:form>
+	
+    <h:form>
+	<p>PrimeFace page9 : </p>
+	<h:commandButton action="#{navController.moveToPage9}" value="page9" />
+	</h:form>	
+    <h:form>
+	<p>PrimeFace page14 : </p>
+	<h:commandButton action="#{navController.moveToPage14}" value="page14 menuitem" />
+	</h:form>	
+    <h:form>
+	<p>PrimeFace page15 : </p>
+	<h:commandButton action="#{navController.moveToPage15}" value="page15 sl3010" />
+	</h:form>	
+    <h:form>
+	<p>PrimeFace page15 : </p>
+	<h:commandButton action="#{navController.moveToPage16}" value="page16 Index of BLack Desert database" />
+	</h:form>									
+
+</h:panelGrid>
+	
+	<h:form>
+	<h3>Programmatic Menu</h3>
+	<p:menu model="#{menuView2.model}" />
+	</h:form>
+	
+    <h:form>
+	<p>PrimeFace page2 : Listener</p>
+	<h:commandButton action="#{navController.moveToSL2019}" value="Mock SL2019" />
+	</h:form>			
+	
+</h:body>
+</html>
