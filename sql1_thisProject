@@ -1,0 +1,14 @@
+select * from employees;
+drop table dssscheck;
+
+SET SCHEMA MOCK_COMPANY;
+
+CREATE TABLE amcheck (
+    id int NOT NULL PRIMARY KEY,
+    name varchar(255),
+    url varchar(255)
+);
+
+insert into amcheck values(1,'JavaMonitor','www.kdjdh.com');
+insert into amcheck values(2,'SysSiteRPM','www.rpmgg.com');
+insert into amcheck values(3,'Sys3','www.3000.com');
