@@ -51,6 +51,10 @@ public class NavController implements Serializable {
 	public String moveToPage16() {
 		return "page16_bdo_database_index";
 	}
+
+	public String moveTo_Site2_page1() {
+		return "/site2/s2page1";
+	}	
 	
 	public String backToIndex() {
 		return "index";
